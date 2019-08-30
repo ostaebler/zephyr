@@ -21,6 +21,18 @@ config SOC_MK22F51212
 	select CPU_HAS_FPU
 	select SMC_MCUX
 
+config SOC_MK22FA12
+	bool "SOC_MK22FA12"
+	select HAS_MCUX
+	select HAS_MCUX_ADC16
+	select HAS_MCUX_FTM
+	select HAS_MCUX_RNGA
+	select HAS_MCUX_SIM
+	select HAS_OSC
+	select HAS_MCG
+	select CPU_HAS_FPU
+	select SMC_MCUX
+
 endchoice
 
 if SOC_SERIES_KINETIS_K2X
@@ -28,9 +40,13 @@ if SOC_SERIES_KINETIS_K2X
 config SOC_PART_NUMBER_MK22FN512VLH12
 	bool
 
+config SOC_PART_NUMBER_MK22FX512AVLK12
+	bool
+
 config SOC_PART_NUMBER_KINETIS_K2X
 	string
 	default "MK22FN512VLH12" if SOC_PART_NUMBER_MK22FN512VLH12
+	default "MK22FX512AVLK12" if SOC_PART_NUMBER_MK22FX512AVLK12
 	help
 	  This string holds the full part number of the SoC. It is a hidden option
 	  that you should not set directly. The part number selection choice defines
